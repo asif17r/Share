@@ -21,23 +21,21 @@ module jkff(q, qbar, j, k, clear, clk);
     
 endmodule
 
-
-module random_counter(q, clear, clk);
+//0->3->5->4->7->2->0
+module editor(q, clear, clk);
     wire [2:0] j,k,qbar;
-    input [2:0] q, clear,clk;
-    not(qbar[0],q[0]);
-    not(qbar[1],q[1]);
-    not(qbar[2],q[2]);
+    input [2:0] q;
+    input clear,clk;
 
     jkff jk1(q[0],qbar[0],j[0],k[0],clear,clk);
     jkff jk2(q[1],qbar[1],j[1],k[1],clear,clk);
     jkff jk3(q[2],qbar[2],j[2],k[2],clear,clk);
 
-    assign j[0] = q[2];
-    assign k[0] = q[1];
-    and(j[1],q[0],qbar[2]);
-    and(k[1],qbar[0],qbar[2]);
-    assign j[2] = qbar[1];
-    xor(k[2],q[0],q[1]);
+    and(j[2],q[1], q[0]);
+    assign k[2] = q[1];
+    assign j[1] = qbar[0];
+    or(k[1],qbar[2],qbar[0]);
+    assign j[0] = qbar[1];
+    or(k[0], qbar[1], q[2]);
     
 endmodule
