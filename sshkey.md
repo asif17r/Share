@@ -12,8 +12,8 @@ ssh-add ~/.ssh/id_ed25519
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
-and copy the ouput.
+and copy the ouput and paste it to your github SSH and GPG keys.   
 
-Then paste it to your github SSH and GPG keys.
-![](https://docs.github.com/assets/cb-34573/images/help/settings/userbar-account-settings.png)
+![](https://docs.github.com/assets/cb-34573/images/help/settings/userbar-account-settings.png)    
+![](https://devmarketer.io/wp-content/uploads/2016/08/settings-page-github.png)
 
